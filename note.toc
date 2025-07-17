@@ -3,13 +3,30 @@
 \contentsline {section}{\numberline {3}酉不变性}{3}{section.3}%
 \contentsline {section}{\numberline {4}变分不等式}{4}{section.4}%
 \contentsline {section}{\numberline {5}凸的等价刻画}{6}{section.5}%
-\contentsline {section}{\numberline {6}理论依据：梯度下降为何一定下降？}{7}{section.6}%
-\contentsline {section}{\numberline {7}优化算法收敛性证明框架的两类方法}{8}{section.7}%
-\contentsline {subsection}{\numberline {7.1}不动点类}{8}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}能量函数类}{10}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Douglas-Rachford 分裂算法的等价形式}{11}{section.8}%
-\contentsline {subsection}{\numberline {8.1}收敛性分析}{11}{subsection.8.1}%
-\contentsline {section}{\numberline {9}全序列收敛的常用技巧}{14}{section.9}%
-\contentsline {section}{\numberline {10}Scaling 缩放技巧}{15}{section.10}%
-\contentsline {section}{\numberline {11}Kurdyka-Łojasiewicz 条件}{16}{section.11}%
-\contentsline {section}{\numberline {12}Farkas 引理}{18}{section.12}%
+\contentsline {section}{\numberline {6}强凸函数的等价刻画}{7}{section.6}%
+\contentsline {section}{\numberline {7}理论依据：一阶条件下梯度下降为何一定下降？}{8}{section.7}%
+\contentsline {section}{\numberline {8}梯度下降法中的步长分析与收敛速度}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}问题设定与基础条件}{9}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}步长 $\alpha < \frac {2}{L}$ 保证下降}{9}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}步长 $\alpha \le \frac {1}{L}$ 才能推出 $\mathcal {O}(1/k)$ 收敛}{9}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}误差线性收敛的条件与最优步长}{10}{subsection.8.4}%
+\contentsline {section}{\numberline {9}误差收缩与线性化算子谱半径的关系}{11}{section.9}%
+\contentsline {paragraph}{一、在 $x^*$ 附近的线性化分析：}{11}{section.9}%
+\contentsline {paragraph}{二、误差收缩速率由谱模控制：}{11}{section.9}%
+\contentsline {paragraph}{三、Hessian 的谱落在 $[\mu , L]$ 区间：}{11}{section.9}%
+\contentsline {paragraph}{四、结论：}{11}{section.9}%
+\contentsline {section}{\numberline {10}优化算法收敛性证明框架的两类方法}{12}{section.10}%
+\contentsline {subsection}{\numberline {10.1}不动点类}{12}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}能量函数类}{14}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Douglas-Rachford 分裂算法的等价形式}{15}{section.11}%
+\contentsline {subsection}{\numberline {11.1}收敛性分析}{15}{subsection.11.1}%
+\contentsline {section}{\numberline {12}收敛性分析：基于Mann迭代的Douglas–Rachford算法}{17}{section.12}%
+\contentsline {subsection}{\numberline {12.1}DR算法的等价迭代形式}{18}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}最大单调性假设与约束资格}{18}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Opial引理}{18}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Mann迭代与非扩张算子}{19}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}DR收敛性定理}{19}{subsection.12.5}%
+\contentsline {section}{\numberline {13}全序列收敛的常用技巧}{20}{section.13}%
+\contentsline {section}{\numberline {14}Scaling 缩放技巧}{21}{section.14}%
+\contentsline {section}{\numberline {15}Kurdyka-Łojasiewicz 条件}{22}{section.15}%
+\contentsline {section}{\numberline {16}Farkas 引理}{24}{section.16}%

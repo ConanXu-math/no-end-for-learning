@@ -513,7 +513,43 @@ $$
 类似地, $\theta(\cdot)$ 是严格凸的等价于 $\nabla\theta(\cdot)$ 是严格单调的; $\theta(\cdot)$ 是强凸的等价于 $\nabla\theta$ 是强单调的. 但需要注意的是, 若一个映射 $F(\cdot)$ 是单调的, 我们并不能直接得到 $F(\cdot)$ 是某一凸函数 $\theta(\cdot)$ 的梯度; 其他情况也是类似的.
 \end{shaded}
 \newpage
-\section{理论依据：梯度下降为何一定下降？}
+\section{强凸函数的等价刻画}
+
+设函数 $f : \mathbb{R}^n \to \mathbb{R}$，我们称 $f$ 是 $\mu$-强凸的（$\mu > 0$），若存在常数 $\mu > 0$，使得以下任一条件成立。若 $f$ 为连续可导函数，则下列条件等价：
+
+\begin{enumerate}
+	\item \textbf{一阶不等式形式（定义）}：对于任意 $x, y \in \mathbb{R}^n$，
+	\[
+	f(y) \ge f(x) + \langle \nabla f(x), y - x \rangle + \frac{\mu}{2} \|y - x\|^2.
+	\]
+	这是强凸性的经典定义形式，也称为带二次项的 Jensen 不等式。
+	
+	\item \textbf{梯度强单调性（gradient strong monotonicity）}：对于任意 $x, y \in \mathbb{R}^n$，
+	\[
+	\langle \nabla f(x) - \nabla f(y), x - y \rangle \ge \mu \|x - y\|^2.
+	\]
+	它反映了 $\nabla f$ 是 $\mu$-强单调的向量场。
+	
+	\item \textbf{Hessian 有界性（$f \in \mathcal{C}^2$ 时）}：
+	\[
+	\nabla^2 f(x) \succeq \mu I, \quad \forall x \in \mathbb{R}^n.
+	\]
+	即 $\nabla^2 f(x)$ 的最小特征值不小于 $\mu$，说明函数在每一点局部至少具有 $\mu$ 的曲率。
+\end{enumerate}
+
+\textbf{备注}：
+\begin{itemize}
+	\item 如果 $f$ 是不可微但闭凸函数，则强凸性的定义可通过次梯度推广为：
+	\[
+	f(y) \ge f(x) + \langle g, y - x \rangle + \frac{\mu}{2} \|y - x\|^2, \quad \forall x,y,\; g \in \partial f(x).
+	\]
+	\item 函数 $f$ 是 $\mu$-强凸的 $\Leftrightarrow$ 函数 $f(x) - \frac{\mu}{2} \|x\|^2$ 是凸的。
+\end{itemize}
+
+这些等价刻画为分析梯度法与一阶方法提供了理论基础。
+
+\newpage
+\section{理论依据：一阶条件下梯度下降为何一定下降？}
 \begin{definition}[下降方向]
 设 $f: \mathbb{R}^n \rightarrow \mathbb{R}$ 是定义在 $\mathbb{R}^n$ 上的连续可微函数。如果向量 $0 \neq \mathbf{d} \in \mathbb{R}^n$ 在点 $\mathbf{x}$ 处的函数 $f$ 的方向导数 $f'(\mathbf{x}; \mathbf{d})$ 是负的，即
 
@@ -548,6 +584,160 @@ $$
 对任意 $t \in (0, \varepsilon]$ 成立，这直接意味着所需的结果。
 \end{proof}
 \end{shaded}
+\newpage
+\section{梯度下降法中的步长分析与收敛速度}
+\subsection{问题设定与基础条件}
+
+设 $f:\mathbb{R}^n \to \mathbb{R}$ 是凸函数，且 $\nabla f$ 是 $L$-Lipschitz 连续的，即对任意 $x,y$ 有
+\[
+\|\nabla f(x) - \nabla f(y)\| \le L \|x - y\|.
+\]
+考虑标准的梯度下降迭代：
+\[
+x_{k+1} = x_k - \alpha \nabla f(x_k),
+\]
+我们将分析步长 $\alpha$ 的取值对算法性能与收敛速度的影响。
+
+\subsection{步长 $\alpha < \frac{2}{L}$ 保证下降}
+
+由 Descent Lemma（$L$-光滑性），对于任意 $\alpha > 0$，有：
+\[
+f(x - \alpha \nabla f(x)) \le f(x) - \alpha\left(1 - \frac{L\alpha}{2} \right) \|\nabla f(x)\|^2.
+\]
+因此，只要
+\[
+\alpha < \frac{2}{L},
+\]
+函数值就严格下降：$f(x_{k+1}) < f(x_k)$。
+
+\subsection{步长 $\alpha \le \frac{1}{L}$ 才能推出 $\mathcal{O}(1/k)$ 收敛}
+
+虽然 $\alpha \in (0, 2/L)$ 保证函数值下降，但要得到函数值误差的 $\mathcal{O}(1/k)$ 收敛，需要构造如下递推不等式：
+\[
+f(x_k) - f^* \le \frac{1}{2\alpha} \left( \|x_{k-1} - x^*\|^2 - \|x_k - x^*\|^2 \right).
+\]
+这是通过结合凸性与光滑性推出的，其成立的关键在于以下不等式：
+\[
+f(x - \alpha \nabla f(x)) \le f(x) - \frac{\alpha}{2} \|\nabla f(x)\|^2,
+\]
+其充要条件为：
+\[
+\boxed{\alpha \le \frac{1}{L}}.
+\]
+
+这是因为从 Descent Lemma 出发，有：
+\[
+f(x - \alpha \nabla f(x)) \le f(x) - \alpha\left(1 - \frac{L\alpha}{2} \right) \|\nabla f(x)\|^2.
+\]
+令其右边不小于 $\frac{\alpha}{c} \|\nabla f(x)\|^2$，即有：
+\[
+1 - \frac{L\alpha}{2} \ge \frac{1}{c} \quad \Rightarrow \quad \alpha \le \frac{2}{L}\left(1 - \frac{1}{c} \right).
+\]
+
+特别地，当 $c=2$ 时，恰有：
+\[
+\boxed{f(x - \alpha \nabla f(x)) \le f(x) - \frac{\alpha}{2} \|\nabla f(x)\|^2 \iff \alpha \le \frac{1}{L}}.
+\]
+
+这是构造函数值下降量的核心工具，因此：
+\[
+\boxed{\text{只有在 } \alpha \le \frac{1}{L} \text{ 时，才能推出 } \mathcal{O}(1/k) \text{ 的收敛速率。}}
+\]
+\begin{remark}
+	等价的关键在于为了构造函数值的次线性收敛, 
+	我们需要下降项系数为$\frac{\alpha}{2}$, 这样才能得到平方范数的递推式
+	\[
+	f(x^{k+1}) \leq f^* +\frac{1}{2\alpha} (\|x^{k}-x^*\|^2-\|x^{k+1}-x^*\|^2).
+	\]
+\end{remark}
+\subsection{误差线性收敛的条件与最优步长}
+
+若进一步假设 $f$ 是 $\mu$-强凸的，则梯度下降法可以实现线性收敛：
+
+\[
+\|x_k - x^*\|^2 \le \left( \frac{L - \mu}{L + \mu} \right)^{2k} \|x_0 - x^*\|^2,
+\]
+其最优步长为：
+\[
+\boxed{\alpha^* = \frac{2}{L + \mu}}.
+\]
+这是误差收敛率最小化下的最优常数步长。
+
+\textbf{总结}
+
+\begin{itemize}
+	\item 在 $0 < \alpha < \frac{2}{L}$ 时，函数值下降，但只有 $\alpha \le \frac{1}{L}$ 时能构造函数值的 $\mathcal{O}(1/k)$ 收敛递推。
+	\item 在强凸条件下，最优步长为 $\alpha = \frac{2}{L + \mu}$，收敛速率为线性。
+	\item 步长选大虽可能加快早期下降，但不能保证长期收敛性质；分析中选 $\alpha \le \frac{1}{L}$ 最稳妥。
+\end{itemize}
+\newpage
+\section{误差收缩与线性化算子谱半径的关系}
+
+在分析强凸 + 光滑函数上梯度下降法的误差收敛时，我们可以借助目标函数在最优点附近的二阶近似，得出如下误差迭代式：
+\[
+e_{k+1} := x_{k+1} - x^* = x_k - x^* - \alpha \nabla f(x_k) = e_k - \alpha (\nabla f(x_k) - \nabla f(x^*)).
+\]
+
+\paragraph{一、在 $x^*$ 附近的线性化分析：}
+
+由于 $f$ 在 $x^*$ 处二阶可导，可以对 $\nabla f(x_k)$ 做泰勒展开：
+\[
+\nabla f(x_k) = \nabla f(x^*) + \nabla^2 f(x^*)(x_k - x^*) + \text{高阶项},
+\]
+而 $\nabla f(x^*) = 0$，因此有近似：
+\[
+\nabla f(x_k) \approx \nabla^2 f(x^*) e_k.
+\]
+
+代入误差更新公式得到：
+\[
+e_{k+1} \approx (I - \alpha \nabla^2 f(x^*)) e_k.
+\]
+
+\paragraph{二、误差收缩速率由谱模控制：}
+
+此时的误差递推是线性系统：
+\[
+e_{k+1} = T e_k, \quad T := I - \alpha \nabla^2 f(x^*).
+\]
+
+因此，
+\[
+\|e_{k+1}\| \le \|T\| \cdot \|e_k\| = \rho(\alpha) \|e_k\|,
+\]
+其中 $\rho(\alpha)$ 是算子 $T$ 的谱模：
+\[
+\rho(\alpha) = \max_{\lambda \in \sigma(\nabla^2 f(x^*))} |1 - \alpha \lambda|.
+\]
+
+\paragraph{三、Hessian 的谱落在 $[\mu, L]$ 区间：}
+
+由 $f$ 的 $\mu$-强凸性与 $L$-光滑性可知：
+
+\begin{itemize}
+	\item $\mu$-强凸性 $\Rightarrow \nabla^2 f(x) \succeq \mu I$，即 $\lambda_{\min}(\nabla^2 f(x)) \ge \mu$；
+	\item $L$-光滑性 $\Rightarrow \nabla^2 f(x) \preceq L I$，即 $\lambda_{\max}(\nabla^2 f(x)) \le L$；
+\end{itemize}
+
+因此：
+\[
+\sigma(\nabla^2 f(x^*)) \subset [\mu, L],
+\quad \text{从而} \quad
+\rho(\alpha) = \max_{\lambda \in [\mu, L]} |1 - \alpha \lambda|.
+\]
+
+\paragraph{四、结论：}
+
+在一般 $C^2$ 类强凸 + 光滑函数上，梯度下降误差线性化为：
+\[
+e_{k+1} \approx (I - \alpha \nabla^2 f(x^*)) e_k,
+\]
+其收敛因子由谱模决定：
+\[
+\|e_{k+1}\| \le \max_{\lambda \in [\mu, L]} |1 - \alpha \lambda| \cdot \|e_k\|,
+\]
+这为我们选取最优步长 $\alpha = \frac{2}{L + \mu}$ 提供了理论依据。
+
 \newpage
 \section{优化算法收敛性证明框架的两类方法}
 \subsection{不动点类}
@@ -810,6 +1000,104 @@ z_{k+1} = (1-\rho_k)\,z_k + \rho_k\,F(z_k)
 		\item 结合 Bolzano–Weierstrass 引理（有界序列存在收敛子列）与极限点唯一性，可推出全序列收敛，且其极限落在 $C$ 中的某一点。		
 	\end{itemize}
 \end{shaded}
+\section{收敛性分析：基于Mann迭代的Douglas–Rachford算法}
+
+我们考虑求解以下形式的包含问题：
+\[
+\text{find } x \in \mathcal{H} \text{ such that } 0 \in A(x) + B(x),
+\]
+其中 $\mathcal{H}$ 是Hilbert空间，$A, B: \mathcal{H} \rightrightarrows \mathcal{H}$ 为最大单调算子。
+
+\subsection{DR算法的等价迭代形式}
+
+我们定义两个反射算子：
+\[
+R_A := 2J_{\lambda A} - I, \quad R_B := 2J_{\lambda B} - I,
+\]
+其中 $J_{\lambda A} := (I + \lambda A)^{-1}$ 是A的近端映射。
+\subsection{最大单调性假设与约束资格}
+
+为了确保 $A + B$ 是最大单调的，我们采用如下假设：
+\begin{itemize}
+	\item $A = \partial f$, $B = \partial g$，其中 $f, g \in \Gamma_0(\mathcal{H})$；
+	\item 且满足 Rockafellar 约束资格条件：
+	\[
+	\text{dom}(f) \cap \text{int dom}(g) \neq \emptyset.
+	\]
+\end{itemize}
+
+根据 Rockafellar 的定理，在上述条件下有：
+\[
+\partial f + \partial g = \partial(f + g), \quad \text{且为最大单调算子}.
+\]
+
+因此，$A + B$ 最大单调性成立，从而问题具有良定义的解集。
+
+构造映射：
+\[
+T := \frac{1}{2}(I + R_B R_A),
+\]
+则Douglas–Rachford算法可表示为如下固定点迭代：
+\[
+x^{k+1} = T(x^k).
+\]
+
+\subsection{Opial引理}
+
+\begin{lemma}[Opial引理]
+	设$\mathcal{H}$为Hilbert空间，$T: \mathcal{H} \to \mathcal{H}$为非扩张映射，$\{x^k\}$是$T$的不动点迭代，即$x^{k+1} = T(x^k)$。若满足：
+	\begin{enumerate}
+		\item $\text{Fix}(T) \neq \emptyset$；
+		\item 任意$z \in \text{Fix}(T)$，序列$\|x^k - z\|$收敛；
+		\item 所有弱收敛子序列极限均属于$\text{Fix}(T)$；
+	\end{enumerate}
+	则 $\{x^k\}$ 弱收敛于某个 $x^\ast \in \text{Fix}(T)$。
+\end{lemma}
+
+\subsection{Mann迭代与非扩张算子}
+
+\begin{lemma}
+	若$T: \mathcal{H} \to \mathcal{H}$为非扩张映射，$\{\alpha_k\} \subset (0,1)$满足
+	\[
+	\sum_{k=0}^\infty \alpha_k (1 - \alpha_k) = \infty,
+	\]
+	则Mann迭代
+	\[
+	x^{k+1} = (1 - \alpha_k)x^k + \alpha_k T(x^k)
+	\]
+	弱收敛于某个$x^\ast \in \text{Fix}(T)$，若$\text{Fix}(T) \neq \emptyset$。
+\end{lemma}
+
+\subsection{DR收敛性定理}
+
+\begin{theorem}[Douglas–Rachford算法的弱收敛性]
+	设 $A, B$ 为最大单调算子，且解集 $\text{zer}(A + B) \neq \emptyset$。令
+	\[
+	T := \frac{1}{2}(I + R_B R_A),
+	\]
+	则$T$为非扩张映射。设初始点$x^0 \in \mathcal{H}$，生成序列$\{x^k\}$如下：
+	\[
+	x^{k+1} = T(x^k),
+	\]
+	则该序列弱收敛于某个 $x^\ast \in \text{Fix}(T)$，且
+	\[
+	z^\ast := J_{\lambda B}(x^\ast) \in \text{zer}(A + B).
+	\]
+\end{theorem}
+
+\begin{proof}
+	我们依次验证Opial引理三点条件：
+	
+	1. 由于$\text{zer}(A + B) \neq \emptyset$，从而$\text{Fix}(T) \neq \emptyset$；
+	
+	2. $T$为非扩张映射，故$\|x^{k+1} - z\| \leq \|x^k - z\|$，由Fejér单调性可知$\|x^k - z\|$收敛；
+	
+	3. 若$x^{k_j} \rightharpoonup x^\infty$，则由非扩张映射与Demiclosedness原理（即$T - I$为demiclosed at 0），可得$x^\infty \in \text{Fix}(T)$。
+	
+	由Opial引理可知，$\{x^k\}$弱收敛于某个不动点$x^\ast \in \text{Fix}(T)$。
+	
+	进一步，由$x^\ast \in \text{Fix}(T) \Rightarrow z^\ast := J_{\lambda B}(x^\ast) \in \text{zer}(A + B)$（经典结果）得证。
+\end{proof}
 \newpage
 \section{全序列收敛的常用技巧}
 

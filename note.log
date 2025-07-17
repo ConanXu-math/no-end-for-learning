@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.25)  4 MAY 2025 22:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.25)  6 MAY 2025 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1004,7 +1004,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 
 (d:/latex/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[1
+
+])
 \tf@toc=\write5
 \openout5 = `note.toc'.
 
@@ -1017,9 +1028,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[1
-
-]
+[2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 264.
@@ -1105,9 +1114,65 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [8]
-Overfull \hbox (9.30844pt too wide) detected at line 649
-[][][][][]
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\endgroup' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@@over' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 601.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\le' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\endgroup' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@@over' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 613.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 613.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1127,25 +1192,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 698--699
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 699--700
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 700--701
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1164,6 +1210,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]
+Overfull \hbox (9.30844pt too wide) detected at line 839
+[][][][][]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1173,14 +1223,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
-ex-text;!
-Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
-ex-text;!
-Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
-ex-text;!
-Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
-ex-text;!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1190,6 +1232,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14]
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--889
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 889--890
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 890--891
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1199,10 +1260,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15]
-
-LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
-(Font)              using `TU/SimSun(0)/b/n' instead on input line 884.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1229,29 +1286,89 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18] (./note.aux)
+[18]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19]
+Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
+ex-text;!
+Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
+ex-text;!
+Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
+ex-text;!
+Missing character: There is no   (U+2009) in font [lmroman12-regular]:mapping=t
+ex-text;!
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21]
+
+LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
+(Font)              using `TU/SimSun(0)/b/n' instead on input line 1172.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24] (./note.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `note.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `note.out':
-(rerunfilecheck)             Before: 079A9BF44EB4862BDD3A81E26A43C6BD;1971
-(rerunfilecheck)             After:  3561A37D02C06A28D9D831A20996D7AE;1971.
+Package rerunfilecheck Info: File `note.out' has not changed.
+(rerunfilecheck)             Checksum: 0462006A93B4369AF824E44067E383E4;4030.
  ) 
 Here is how much of TeX's memory you used:
- 27389 strings out of 476683
- 595831 string characters out of 5804928
+ 27495 strings out of 476683
+ 601388 string characters out of 5804928
  1864012 words of memory out of 5000000
- 47166 multiletter control sequences out of 15000+600000
- 521192 words of font info for 99 fonts, out of 8000000 for 9000
+ 47267 multiletter control sequences out of 15000+600000
+ 523415 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,12n,104p,447b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on note.pdf (20 pages).
+Output written on note.pdf (27 pages).
