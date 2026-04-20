@@ -21,3 +21,6 @@
 
 # Generated documents
 # *.pdf
+
+.DS_Store
+.claude/
