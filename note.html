@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>学海无涯 - 笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #f7f7f7;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .topbar {
+      height: 52px;
+      box-sizing: border-box;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .title {
+      font-weight: 650;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .actions a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 52px);
+      border: 0;
+      background: white;
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        height: auto;
+        min-height: 52px;
+        padding: 10px 14px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      iframe {
+        height: calc(100vh - 78px);
+      }
+
+      .actions {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="title">学海无涯 - 笔记</div>
+    <div class="actions">
+      <a href="./note.pdf" target="_blank" rel="noopener">新窗口打开 PDF</a>
+      <a href="./note.pdf" download>下载 PDF</a>
+    </div>
+  </div>
+
+  <iframe src="./note.pdf"></iframe>
+
+  <!--
+    使用方法：
+    1. 去 Cloudflare Web Analytics 新增站点：conanxu-math.github.io
+    2. 复制 Cloudflare 给你的 token
+    3. 把下面的 f6729a724f624fb0bd74dc15c4f867ab 换成你的 token
+  -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "f6729a724f624fb0bd74dc15c4f867ab"}'></script>
+</body>
+</html>
